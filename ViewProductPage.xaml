@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Capstone.Models"
+             x:Class="Capstone.ViewProductPage"
+             Title="View Product">
+
+    <ScrollView>
+
+        <Grid
+            RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto"
+            ColumnDefinitions="*">
+
+            <!--top section-->
+            <VerticalStackLayout 
+                Grid.Row="0" 
+                Grid.Column="0"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Padding="20">
+
+                <Label
+                    x:Name="ProductName"
+                    Text="Product"                
+                    FontSize="36"                        
+                    VerticalOptions="Start"    
+                    HorizontalOptions="Center"                     
+                    HorizontalTextAlignment="Center"
+               />
+
+                <Label
+                    x:Name="ProductDates"
+                    Text="Dates"                
+                    FontSize="16"                         
+                    VerticalOptions="Center"    
+                    HorizontalOptions="Center"                     
+                    HorizontalTextAlignment="Center"
+                    Padding="10"
+               />
+
+            </VerticalStackLayout>
+
+            <!--top middle section-->
+            <Grid 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <!--Product Owner-->
+                <Label 
+                    Text="Product Owner"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,-5,0,0"
+               />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="20"
+                    Margin="0,15,0,0">
+
+                    <!--Name-->
+                    <FlexLayout
+                        Margin="0,0,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Name:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="ProductOwnerNameLabel"
+                            Text="Name"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                            WidthRequest="210"
+                        />
+                    </FlexLayout>
+
+                    <!--Phone-->
+                    <FlexLayout
+                        Margin="0,45,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Phone:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="ProductOwnerPhoneLabel"
+                            Text="Phone"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                            WidthRequest="210"
+                        />
+                    </FlexLayout>
+
+                    <!--Email-->
+                    <FlexLayout
+                        Margin="0,90,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Email:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="ProductOwnerEmailLabel"
+                            Text="Email"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                            WidthRequest="272"
+                        />
+                    </FlexLayout>
+                </Grid>
+            </Grid>
+
+            <!--middle middle section-->
+            <Grid 
+                Grid.Row="2" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <!--Product Settings-->
+                <Label 
+                    Text="Product Settings"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,15,0,0"
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="20"
+                    Margin="0,35,0,0">
+
+                    <!--Status-->
+                    <FlexLayout
+                        Margin="0,0,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Status:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="ProductStatusLabel"
+                            Text="Status"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                        />
+                    </FlexLayout>
+
+                    <!--Priority-->
+                    <FlexLayout
+                        Margin="0,45,0,0"
+                        JustifyContent="SpaceBetween">
+
+                        <Label   
+                                Text="Priority:"
+                                FontSize="16"                                                              
+                        />
+
+                        <Label   
+                                x:Name="ProductPriorityLabel"
+                                Text="Priority"
+                                FontSize="16"
+                                FontAttributes="None"
+                                FlowDirection="RightToLeft"                           
+                        />
+                    </FlexLayout>
+
+                    <!--Alerts-->
+                    <FlexLayout
+                        Margin="0,90,0,0"
+                        JustifyContent="SpaceBetween">
+
+                        <Label   
+                            Text="Alerts:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="ProductAlertsLabel"
+                            Text="Alerts"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"                           
+/>
+                    </FlexLayout>
+                </Grid>
+            </Grid>
+
+            <!--bottom middle section-->
+            <Grid 
+                Grid.Row="3" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <!--Sprints-->
+                <Label 
+                    x:Name="ProductTasksLabel"
+                    Text="Tasks"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,10,0,0"                    
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="10"
+                    Margin="0,40,0,0">
+
+                    <CollectionView x:Name="SprintCollectionView">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type model:Sprint}">
+
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Sprint">
+                                <Grid Padding="0,10">
+                                    <Frame>
+                                        <FlexLayout
+                                            HorizontalOptions="Center"                                     
+                                            Margin="0,-10,0,-10"
+                                            JustifyContent="SpaceBetween">
+
+                                            <Label Text="{Binding Name}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+
+                                            <Button 
+                                                x:Name="ViewSprintButton"                                        
+                                                Text="View"                                                                                      
+                                                SemanticProperties.Hint="View Selected Task"   
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20" 
+                                                VerticalOptions="Center"                                                  
+                                                Clicked="ViewSprintButton_Clicked"
+                                                CommandParameter="{Binding Id}"
+                                            />
+                                        </FlexLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+
+            <!--bottom section-->
+            <HorizontalStackLayout 
+                Grid.Row="4" 
+                Grid.Column="0" 
+                VerticalOptions="Start" 
+                HorizontalOptions="Center"
+                Padding="0,20,0,20">
+
+                <Button
+                    x:Name="AddSprintButton"
+                    Text="Add Task"               
+                    SemanticProperties.Hint="Add a new Task"    
+                    MinimumWidthRequest="280" 
+                    Clicked="AddSprintButton_Clicked"
+               />
+            </HorizontalStackLayout>
+
+
+
+            <HorizontalStackLayout 
+                Grid.Row="5" 
+                Grid.Column="0" 
+                VerticalOptions="End" 
+                HorizontalOptions="Center"
+                Padding="20,20,20,40">
+
+                <Button
+                    x:Name="EditProductButton"
+                    Text="Edit Product"               
+                    SemanticProperties.Hint="Edit the selected Product"    
+                    MinimumWidthRequest="120"                
+                    Clicked="EditProductButton_Clicked"
+                    Margin="0,0,20,0"
+               />
+
+                <Button
+                    x:Name="DeleteProductButton"
+                    Text="Delete Product"               
+                    SemanticProperties.Hint="Delete the selected Product"    
+                    MinimumWidthRequest="120"                 
+                    Clicked="DeleteProductButton_Clicked"
+                    Margin="20,0,0,0"
+               
+               />
+            </HorizontalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

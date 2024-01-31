@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Capstone.Models"
+             x:Class="Capstone.ViewSprintPage"
+             Title="View Task">
+    <ScrollView>        
+   
+        <Grid
+            RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto"
+            ColumnDefinitions="*">
+              
+            <!--top section-->
+            <VerticalStackLayout 
+                Grid.Row="0" 
+                Grid.Column="0"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Padding="20">
+
+                <Label
+                    x:Name="SprintName"
+                    Text="Sprint"                
+                    FontSize="36"                        
+                    VerticalOptions="Start"    
+                    HorizontalOptions="Center"                     
+                    HorizontalTextAlignment="Center"
+               />
+
+                <Label
+                    x:Name="SprintDates"
+                    Text="Dates"                
+                    FontSize="16"                         
+                    VerticalOptions="Center"    
+                    HorizontalOptions="Center"                     
+                    HorizontalTextAlignment="Center"
+                    Padding="10"
+               />
+
+            </VerticalStackLayout>
+
+            <!--top middle section-->
+            <Grid 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <!--Sprint Assignee-->
+                <Label 
+                    Text="Task Assignee"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,-5,0,0"
+               />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="20"
+                    Margin="0,15,0,0">
+
+                    <!--Name-->
+                    <FlexLayout
+                        Margin="0,0,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Name:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="SprintAssigneeNameLabel"
+                            Text="Name"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                            WidthRequest="210"
+                        />
+                    </FlexLayout>
+
+                    <!--Phone-->
+                    <FlexLayout
+                        Margin="0,45,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Phone:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="SprintAssigneePhoneLabel"
+                            Text="Phone"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                            WidthRequest="210"
+                        />
+                    </FlexLayout>
+
+                    <!--Email-->
+                    <FlexLayout
+                        Margin="0,90,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Email:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="SprintAssigneeEmailLabel"
+                            Text="Email"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                            WidthRequest="272"
+                        />
+                    </FlexLayout>
+                </Grid>
+            </Grid>
+
+            <!--middle middle section-->
+            <Grid 
+                Grid.Row="2" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <!--Sprint Settings-->
+                <Label 
+                    Text="Task Settings"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,15,0,0"
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="20"
+                    Margin="0,35,0,0">
+
+                    <!--Status-->
+                    <FlexLayout
+                        Margin="0,0,0,0"
+                        JustifyContent="SpaceBetween">
+                        <Label   
+                            Text="Status:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="SprintStatusLabel"
+                            Text="Status"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"
+                        />
+                    </FlexLayout>
+
+                    <!--Priority-->
+                    <FlexLayout
+                        Margin="0,45,0,0"
+                        JustifyContent="SpaceBetween">
+
+                        <Label   
+                                Text="Priority:"
+                                FontSize="16"                                                              
+                        />
+
+                        <Label   
+                                x:Name="SprintPriorityLabel"
+                                Text="Priority"
+                                FontSize="16"
+                                FontAttributes="None"
+                                FlowDirection="RightToLeft"                           
+                        />
+                    </FlexLayout>
+
+                    <!--Alerts-->
+                    <FlexLayout
+                        Margin="0,90,0,0"
+                        JustifyContent="SpaceBetween">
+
+                        <Label   
+                            Text="Alerts:"
+                            FontSize="16"                                                              
+                        />
+
+                        <Label   
+                            x:Name="SprintAlertsLabel"
+                            Text="Alerts"
+                            FontSize="16"
+                            FontAttributes="None"
+                            FlowDirection="RightToLeft"                           
+/>
+                    </FlexLayout>
+                </Grid>
+            </Grid>
+
+            <!--bottom middle section-->
+            <Grid 
+                Grid.Row="3" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <!--Requirements-->
+                <Label 
+                    x:Name="SprintRequirementsLabel"
+                    Text="Requirements"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,10,0,0"                    
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="10"
+                    Margin="0,40,0,0">
+
+                    <CollectionView x:Name="RequirementCollectionView">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type model:Requirement}">
+
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Requirement">
+                                <Grid Padding="0,10">
+                                    <Frame>
+                                        <FlexLayout
+                                            HorizontalOptions="Center"                                     
+                                            Margin="0,-10,0,-10"
+                                            JustifyContent="SpaceBetween">
+
+                                            <Label Text="{Binding Name}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+
+                                            <Button 
+                                                x:Name="ViewRequirementButton"                                        
+                                                Text="View"                                                                                      
+                                                SemanticProperties.Hint="View Selected Requirement"   
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20" 
+                                                VerticalOptions="Center"                                                  
+                                                Clicked="ViewRequirementButton_Clicked"
+                                                CommandParameter="{Binding Id}"
+                                            />
+                                        </FlexLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+
+            <!--bottom section-->
+            <HorizontalStackLayout 
+                Grid.Row="4" 
+                Grid.Column="0" 
+                VerticalOptions="Start" 
+                HorizontalOptions="Center"
+                Padding="0,20,0,20">
+
+                <Button
+                    x:Name="AddRequirementButton"
+                    Text="Add Requirement"               
+                    SemanticProperties.Hint="Add a new Requirement"    
+                    MinimumWidthRequest="280" 
+                    Clicked="AddRequirementButton_Clicked"
+               />
+            </HorizontalStackLayout>
+
+           
+
+            <HorizontalStackLayout 
+                Grid.Row="5" 
+                Grid.Column="0" 
+                VerticalOptions="End" 
+                HorizontalOptions="Center"
+                Padding="20,20,20,40">
+
+                <Button
+                    x:Name="EditSprintButton"
+                    Text="Edit Task"               
+                    SemanticProperties.Hint="Edit the selected Sprint"    
+                    MinimumWidthRequest="120"                
+                    Clicked="EditSprintButton_Clicked"
+                    Margin="0,0,20,0"
+               />
+
+                <Button
+                    x:Name="DeleteSprintButton"
+                    Text="Delete Task"               
+                    SemanticProperties.Hint="Delete the selected Sprint"    
+                    MinimumWidthRequest="120"                 
+                    Clicked="DeleteSprintButton_Clicked"
+                    Margin="20,0,0,0"               
+               />
+            </HorizontalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

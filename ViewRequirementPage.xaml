@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Capstone.ViewRequirementPage"
+             Title="View Requirement">
+    
+    <Grid
+         RowDefinitions="Auto,Auto,*,Auto"
+         ColumnDefinitions="*">
+    
+        <!--top section-->
+        <VerticalStackLayout 
+             Grid.Row="0" 
+             Grid.Column="0"
+             VerticalOptions="Start"
+             HorizontalOptions="Center"
+             Padding="20">
+    
+            <Label
+                 x:Name="RequirementName"
+                 Text="Requirement"                
+                 FontSize="36"       
+                 VerticalOptions="Start"    
+                 HorizontalOptions="Center"                     
+                 HorizontalTextAlignment="Center"
+                
+            />
+    
+            <Label
+                 x:Name="RequirementDates"
+                 Text=" "                
+                 FontSize="16"    
+                 VerticalOptions="Center"    
+                 HorizontalOptions="Center"                     
+                 HorizontalTextAlignment="Center"
+                 Padding="10"
+            />
+    
+        </VerticalStackLayout>
+    
+        <!--middle section-->
+        <Grid 
+         Grid.Row="1" 
+         Grid.Column="0" 
+         VerticalOptions="Fill" 
+         HorizontalOptions="StartAndExpand">
+    
+            <!--Requirement Details-->
+            <Label 
+                 Text="Requirement Details"                
+                 FontSize="18"                 
+                 FontAttributes="Bold"
+                 TextDecorations="Underline"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Start"  
+                 Padding="20,0,0,0"
+                 Margin="0,-5,0,0"
+            />
+    
+            <Grid 
+                 RowDefinitions="*"
+                 ColumnDefinitions="0.5*"
+                 VerticalOptions="StartAndExpand"
+                 HorizontalOptions="CenterAndExpand"
+                 Padding="20"
+                 Margin="0,15,0,0">
+    
+                <!--Type-->
+                <FlexLayout
+                     Margin="0,0,0,0"
+                     JustifyContent="SpaceBetween">
+                    <Label   
+                         Text="Type:"
+                         FontSize="16"                                                              
+                    />
+    
+                    <Label   
+                         x:Name="RequirementTypeLabel"
+                         Text="Type"
+                         FontSize="16"
+                         FontAttributes="None"
+                         FlowDirection="RightToLeft"
+                     />
+                </FlexLayout>
+                       
+                <!--Description-->
+                <FlexLayout
+                     Margin="0,45,0,0"                    
+                     JustifyContent="SpaceBetween">
+                    <Label   
+                         Text="Description:"
+                         FontSize="16"                                                              
+                    />                   
+                    <Label   
+                         x:Name="RequirementDescriptionLabel"
+                         Text="Description"
+                         FontSize="16"
+                         FontAttributes="None"
+                         FlowDirection="RightToLeft"                         
+                         WidthRequest="210"   
+                       
+                    />
+                </FlexLayout>
+            </Grid>
+        </Grid>
+      
+        <!--bottom section-->    
+        <HorizontalStackLayout 
+             Grid.Row="3" 
+             Grid.Column="0" 
+             VerticalOptions="End" 
+             HorizontalOptions="Center"
+             Padding="20,20,20,40">
+    
+            <Button
+                 x:Name="EditRequirementButton"
+                 Text="Edit Requirement"               
+                 SemanticProperties.Hint="Edit the selected Requirement"    
+                 MinimumWidthRequest="120"                
+                 Clicked="EditRequirementButton_Clicked"
+                 Margin="0,0,20,0"
+            />
+    
+            <Button
+                 x:Name="DeleteRequirementButton"
+                 Text="Delete Requirement"               
+                 SemanticProperties.Hint="Delete the selected Requirement"    
+                 MinimumWidthRequest="120"                 
+                 Clicked="DeleteRequirementButton_Clicked"
+                 Margin="20,0,0,0"            
+            />
+        </HorizontalStackLayout>
+    </Grid>   
+</ContentPage>

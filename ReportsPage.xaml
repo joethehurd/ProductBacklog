@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Capstone.Models"
+             x:Class="Capstone.ReportsPage"
+             Title="Reports">
+    <ScrollView>
+        <Grid
+            RowDefinitions="Auto,Auto,*"
+            ColumnDefinitions="*">
+
+            <!--top section-->
+            <Grid
+               Grid.Row="0"
+               Grid.Column="0"
+                Margin="0,0,0,0">
+
+                <!--Filter Settings-->
+                <Label                    
+                   Text="Filters"                
+                   FontSize="18"                 
+                   FontAttributes="Bold"
+                   TextDecorations="Underline"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"  
+                   Padding="20,20,20,0"
+                   Margin="0,0,0,0"
+               />
+
+                <!--Type-->
+                <FlexLayout                   
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"
+                   JustifyContent="SpaceBetween"           
+                   Margin="20,60,20,0">
+
+                    <Label   
+                       Text="* Type:"
+                       FontSize="16"                                                              
+                   />
+
+                    <Frame 
+                       CornerRadius="0"
+                       Margin="0,0,0,60">
+
+                        <Picker 
+                           x:Name="ReportTypePicker" 
+                           FlowDirection="LeftToRight"
+                       />
+                    </Frame>
+                </FlexLayout>
+                
+                <!--Event-->
+                <FlexLayout                    
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"
+                   JustifyContent="SpaceBetween"
+                   Margin="20,115,20,0">
+
+                    <Label   
+                       Text="* Event:"
+                       FontSize="16"                                                              
+                   />
+
+                    <Frame 
+                       CornerRadius="0"
+                       Margin="0,0,0,60">
+
+                        <Picker 
+                            x:Name="ReportEventPicker"
+                            FlowDirection="LeftToRight">
+                        </Picker>
+
+                    </Frame>
+                </FlexLayout>
+
+                <!--Month-->
+                <FlexLayout                   
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"
+                   JustifyContent="SpaceBetween"
+                   Margin="20,170,20,0">
+
+                    <Label   
+                       Text="* Month:"
+                       FontSize="16"                                                              
+                   />
+
+                    <Frame 
+                       CornerRadius="0"
+                       Margin="0,0,0,60">
+
+                        <Picker 
+                           x:Name="ReportMonthPicker"
+                           FlowDirection="LeftToRight">
+                        </Picker>
+
+                    </Frame>
+                </FlexLayout>
+            </Grid>
+
+            <!--middle section-->
+            <Grid 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand"
+                Margin="0,-60,0,0">
+
+                <FlexLayout
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="0,0,0,0">
+                    
+                    <Label
+                        x:Name="TypeLabel"
+                        Text=""                
+                        FontSize="18"                 
+                        FontAttributes="Bold"
+                        TextDecorations="Underline"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"  
+                        Padding="20,0,20,0"
+                        Margin="0,0,0,0"
+                    />
+
+                    <Label
+                        x:Name="EventLabel"
+                        Text=""                
+                        FontSize="18"                 
+                        FontAttributes="Bold"
+                        TextDecorations="Underline"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"  
+                        Padding="20,0,20,0"
+                        Margin="0,0,0,0"
+                    />
+                </FlexLayout>                                
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="10"
+                    Margin="0,20,0,0">
+
+                    <CollectionView x:Name="ReportCollectionView">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type model:Report}">
+
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Report">
+                                <Grid Padding="0,10">
+                                    <Frame>
+                                        <FlexLayout
+                                            HorizontalOptions="Center"                                     
+                                            Margin="0,-10,0,-10"
+                                            JustifyContent="SpaceBetween">
+
+                                            <Label Text="{Binding Name}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+
+                                            <Label Text="{Binding Date}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+                                        </FlexLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+
+            <!--bottom section-->
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0">
+
+                <HorizontalStackLayout                     
+                    VerticalOptions="End" 
+                    HorizontalOptions="Center"
+                    Padding="20,20,20,40">
+
+                    <Button
+                        x:Name="GenerateReportButton"
+                        Text="Generate Report"               
+                        SemanticProperties.Hint="Generate Report"    
+                        MinimumWidthRequest="280"                
+                        Clicked="GenerateReportButton_Clicked"
+                        Margin="0,0,20,0"
+                    />                   
+                </HorizontalStackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

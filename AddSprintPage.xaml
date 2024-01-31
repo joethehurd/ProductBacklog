@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Capstone.AddSprintPage"
+             Title="Add Task">
+
+    <ScrollView>
+        
+        <Grid
+            RowDefinitions="Auto,Auto,Auto,Auto"
+            ColumnDefinitions="*">
+
+            <!--top section-->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0">                
+            
+                <!--Add Sprint-->
+                <Label            
+                
+                    Text="Task Details"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,40,0,0"
+                    Margin="0,0,0,0"
+                />
+
+                <!--Sprint Name-->
+                <FlexLayout                   
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"           
+                    Margin="20,85,20,0">
+
+                    <Label   
+                        Text="* Task Name:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Entry 
+                            x:Name="SprintNameEntry" 
+                            FlowDirection="LeftToRight"
+                            MaxLength="40"
+                        />
+                    </Frame>
+                </FlexLayout>
+
+                <!--Sprint Start-->
+                <FlexLayout                    
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="20,140,20,0">
+
+                    <Label   
+                        Text="* Start Date:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <DatePicker 
+                            x:Name="SprintStartDatePicker"
+                            Format="MMMM d, yyyy"
+                            FlowDirection="LeftToRight">
+                        </DatePicker>
+                    </Frame>
+                </FlexLayout>
+
+                <!--Sprint End-->
+                <FlexLayout                   
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="20,195,20,0">
+
+                    <Label   
+                        Text="* End Date:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <DatePicker 
+                            x:Name="SprintEndDatePicker"
+                            Format="MMMM d, yyyy"
+                            FlowDirection="LeftToRight">  
+                        </DatePicker>
+                    </Frame>
+                </FlexLayout>
+            </Grid>
+
+            <!--middle section-->
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0">
+
+                <!--Sprint Assignee-->
+                <Label            
+                
+                    Text="Task Assignee"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,-60,0,0"
+                />
+
+                <!--Sprint Assignee Name-->
+                <FlexLayout                   
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"           
+                    Margin="20,-10,20,0">
+
+                    <Label   
+                        Text="* Name:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Entry 
+                            x:Name="SprintAssigneeNameEntry"  
+                            FlowDirection="LeftToRight"
+                            Keyboard="Text" 
+                            MaxLength="40"
+                        />
+                    </Frame>
+                </FlexLayout>
+
+                <!--Sprint Assignee Phone-->
+                <FlexLayout                    
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="20,45,20,0">
+
+                    <Label   
+                        Text="* Phone:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Entry 
+                            x:Name="SprintAssigneePhoneEntry"
+                            FlowDirection="LeftToRight"
+                            Keyboard="Telephone"
+                            MaxLength="20">
+                        </Entry>
+                    </Frame>
+                </FlexLayout>
+
+                <!--Sprint Assignee Email-->
+                <FlexLayout                   
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="20,100,20,0">
+
+                    <Label   
+                        Text="* Email:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Entry 
+                            x:Name="SprintAssigneeEmailEntry"
+                            FlowDirection="LeftToRight"
+                            Keyboard="Email"
+                            MaxLength="80">
+                        </Entry>
+                    </Frame>
+                </FlexLayout>
+            </Grid>
+
+            <!--middle bottom section-->
+            <Grid
+                Grid.Row="3"
+                Grid.Column="0">
+
+                <!--Sprint Settings-->
+                <Label                    
+                    Text="Task Settings"                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,-70,0,0"
+                />
+
+                <!--Status-->
+                <FlexLayout                   
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"           
+                    Margin="20,-20,20,0">
+
+                    <Label   
+                        Text="* Status:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Picker 
+                            x:Name="SprintStatusPicker" 
+                            FlowDirection="LeftToRight"
+                        />
+                    </Frame>
+                </FlexLayout>
+
+                <!--Priority-->
+                <FlexLayout                    
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="20,35,20,0">
+
+                    <Label   
+                        Text="* Priority:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Picker 
+                             x:Name="SprintPriorityPicker"
+                             FlowDirection="LeftToRight">                            
+                        </Picker>
+                       
+                    </Frame>
+                </FlexLayout>
+
+                <!--Alerts-->
+                <FlexLayout                   
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"
+                    Margin="20,90,20,0">
+
+                    <Label   
+                        Text="* Alerts:"
+                        FontSize="16"                                                              
+                    />
+
+                    <Frame 
+                        CornerRadius="0"
+                        Margin="0,0,0,60">
+
+                        <Picker 
+                            x:Name="SprintAlertsPicker"
+                            FlowDirection="LeftToRight">
+                        </Picker>
+
+                    </Frame>
+                </FlexLayout>
+            </Grid>
+
+            <!--bottom section-->
+            <Grid
+                Grid.Row="3"
+                Grid.Column="0">                
+           
+                <HorizontalStackLayout                     
+                    VerticalOptions="End" 
+                    HorizontalOptions="Center"
+                    Padding="20,20,20,40">
+
+                    <Button
+                        x:Name="SaveSprintButton"
+                        Text="Save"               
+                        SemanticProperties.Hint="Save the new Task"    
+                        MinimumWidthRequest="120"                
+                        Clicked="SaveSprintButton_Clicked"
+                        Margin="0,0,20,0"
+                    />
+
+                    <Button
+                        x:Name="CancelSprintButton"
+                        Text="Cancel"               
+                        SemanticProperties.Hint="Cancel the new Task"    
+                        MinimumWidthRequest="120"                 
+                        Clicked="CancelSprintButton_Clicked"
+                        Margin="20,0,0,0"         
+                    />
+                </HorizontalStackLayout>
+            </Grid>
+        </Grid>        
+    </ScrollView>            
+</ContentPage>

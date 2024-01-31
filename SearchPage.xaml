@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Capstone.Models"
+             x:Class="Capstone.SearchPage"
+             Title="Search">
+
+    <ScrollView>
+        <Grid
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+            ColumnDefinitions="*">
+
+            <!--search section-->            
+            <Frame 
+                Grid.Row="0" 
+                CornerRadius="0"
+                Margin="0,5,0,0"
+                HeightRequest="80"
+                BorderColor="#202020">
+
+                <FlexLayout                           
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    JustifyContent="SpaceBetween"           
+                    Margin="0,0,0,0">
+                    
+                    <Frame
+                        Grid.Row="0" 
+                        CornerRadius="0"
+                        Margin="0,0,0,0">
+                        
+                        <Entry 
+                            x:Name="SearchEntry" 
+                            FlowDirection="LeftToRight"                            
+                            FontSize="18"                                                 
+                            WidthRequest="210"     
+                            ReturnType="Search"
+                        />
+                    </Frame>
+                    
+                    <Button 
+                        x:Name="SearchButton"                                        
+                        Text="Search"                                                                                      
+                        SemanticProperties.Hint="Search Products, Tasks, and Requirements"   
+                        MinimumHeightRequest="20"
+                        MinimumWidthRequest="20" 
+                        VerticalOptions="Center"                                                  
+                        Clicked="SearchButton_Clicked"    
+                    />
+                </FlexLayout>                                
+            </Frame>
+
+            <!--results section-->
+            <Grid
+                Grid.Row="1" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+
+                <Label
+                    x:Name="ResultsLabel"
+                    Text=""                
+                    FontSize="14"                 
+                    FontAttributes="None"                    
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,40"
+                    Margin="0,-5,0,0"
+                />
+
+            </Grid>
+            
+            <!--products section-->
+            <Grid 
+               Grid.Row="2" 
+               Grid.Column="0" 
+               VerticalOptions="Fill" 
+               HorizontalOptions="StartAndExpand">
+
+                <Label
+                    x:Name="ProductsLabel"
+                    Text=""                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,5,0,0"
+                    Margin="0,-5,0,0"
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="10"
+                    Margin="0,20,0,0">
+
+                    <CollectionView x:Name="ProductCollectionView">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type model:Product}">
+
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Product">
+                                <Grid Padding="0,10">
+                                    <Frame>
+                                        <FlexLayout
+                                            HorizontalOptions="Center"                                     
+                                            Margin="0,-10,0,-10"
+                                            JustifyContent="SpaceBetween">
+
+                                            <Label Text="{Binding Name}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+
+                                            <Button 
+                                                x:Name="ViewProductButton"                                        
+                                                Text="View"                                                                                      
+                                                SemanticProperties.Hint="View Selected Product"   
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20" 
+                                                VerticalOptions="Center"                                                  
+                                                Clicked="ViewProductButton_Clicked"
+                                                CommandParameter="{Binding Id}"
+                                            />
+                                        </FlexLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+
+            <!--sprints section-->
+            <Grid 
+                Grid.Row="3" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand">
+                
+                <Label 
+                    x:Name="SprintsLabel"
+                    Text=""                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,20,0,0"                    
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="10"
+                    Margin="0,40,0,0">
+
+                    <CollectionView x:Name="SprintCollectionView">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type model:Sprint}">
+
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Sprint">
+                                <Grid Padding="0,10">
+                                    <Frame>
+                                        <FlexLayout
+                                            HorizontalOptions="Center"                                     
+                                            Margin="0,-10,0,-10"
+                                            JustifyContent="SpaceBetween">
+
+                                            <Label Text="{Binding Name}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+
+                                            <Button 
+                                                x:Name="ViewSprintButton"                                        
+                                                Text="View"                                                                                      
+                                                SemanticProperties.Hint="View Selected Task"   
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20" 
+                                                VerticalOptions="Center"                                                  
+                                                Clicked="ViewSprintButton_Clicked"
+                                                CommandParameter="{Binding Id}"
+                                            />
+                                        </FlexLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+
+            <!--requirements section-->
+            <Grid 
+                Grid.Row="4" 
+                Grid.Column="0" 
+                VerticalOptions="Fill" 
+                HorizontalOptions="StartAndExpand"> 
+               
+                <Label 
+                    x:Name="RequirementsLabel"
+                    Text=""                
+                    FontSize="18"                 
+                    FontAttributes="Bold"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"  
+                    Padding="20,0,0,0"
+                    Margin="0,20,0,0"                    
+                />
+
+                <Grid 
+                    RowDefinitions="*"
+                    ColumnDefinitions="0.5*"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="10"
+                    Margin="0,40,0,0">
+
+                    <CollectionView x:Name="RequirementCollectionView">
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type model:Requirement}">
+
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Requirement">
+                                <Grid Padding="0,10">
+                                    <Frame>
+                                        <FlexLayout
+                                            HorizontalOptions="Center"                                     
+                                            Margin="0,-10,0,-10"
+                                            JustifyContent="SpaceBetween">
+
+                                            <Label Text="{Binding Name}"
+                                                FontSize="16"                                              
+                                                VerticalOptions="Center"                                            
+                                            />
+
+                                            <Button 
+                                                x:Name="ViewRequirementButton"                                        
+                                                Text="View"                                                                                      
+                                                SemanticProperties.Hint="View Selected Requirement"   
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20" 
+                                                VerticalOptions="Center"                                                  
+                                                Clicked="ViewRequirementButton_Clicked"
+                                                CommandParameter="{Binding Id}"
+                                            />
+                                        </FlexLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

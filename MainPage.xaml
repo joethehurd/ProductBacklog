@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Capstone.Models"
+             x:Class="Capstone.MainPage">    
+
+    <Grid
+        RowDefinitions="Auto,*,Auto"
+        ColumnDefinitions="*">
+
+        <!--top section-->
+        <VerticalStackLayout 
+            Grid.Row="0" 
+            Grid.Column="0"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            Padding="20">            
+            
+            <Label
+                Text="Product Backlog"                
+                FontSize="36"                        
+                HorizontalOptions="Center"
+                VerticalOptions="Start"    
+            />
+
+            <Label
+                Text="Capstone Application"                
+                FontSize="16"                         
+                HorizontalOptions="Center"
+                VerticalOptions="Center"    
+                Padding="10"
+            />
+           
+        </VerticalStackLayout>
+
+        <!--middle section-->
+        <Grid 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            VerticalOptions="Fill" 
+            HorizontalOptions="StartAndExpand">
+
+            <Label
+                x:Name="ProductsLabel"
+                Text="Products"                
+                FontSize="18"                 
+                FontAttributes="Bold"
+                TextDecorations="Underline"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"  
+                Padding="20,0,0,0"
+                Margin="0,-5,0,0"
+            />
+
+            <Grid 
+                RowDefinitions="*"
+                ColumnDefinitions="0.5*"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Padding="10"
+                Margin="0,20,0,0">
+
+                <CollectionView x:Name="ProductCollectionView">                    
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type model:Product}">
+                            
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Product">
+                            <Grid Padding="0,10">
+                                <Frame>
+                                    <FlexLayout
+                                        HorizontalOptions="Center"                                     
+                                        Margin="0,-10,0,-10"
+                                        JustifyContent="SpaceBetween">
+
+                                        <Label Text="{Binding Name}"
+                                               FontSize="16"                                              
+                                               VerticalOptions="Center"                                            
+                                        />
+
+                                        <Button 
+                                            x:Name="ViewProductButton"                                        
+                                            Text="View"                                                                                      
+                                            SemanticProperties.Hint="View Selected Product"   
+                                            MinimumHeightRequest="20"
+                                            MinimumWidthRequest="20" 
+                                            VerticalOptions="Center"                                                  
+                                            Clicked="ViewProductButton_Clicked"
+                                            CommandParameter="{Binding Id}"
+                                        />
+                                    </FlexLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Grid>
+
+        <!--bottom section-->
+        <HorizontalStackLayout 
+            Grid.Row="2" 
+            Grid.Column="0" 
+            VerticalOptions="End" 
+            HorizontalOptions="Center"
+            Padding="20,20,20,40">
+            
+            <Button
+                x:Name="AddProductButton"
+                Text="Add Product"               
+                SemanticProperties.Hint="Add a new Product"    
+                MinimumWidthRequest="280" 
+                Clicked="AddProductButton_Clicked"
+            />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
